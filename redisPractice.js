@@ -21,11 +21,11 @@ app.get("/posts", async (req, res) => {
     const cachedData = await redisClient.get(cacheKey);
 
     if (cachedData) {
-      console.log("⚡ Cache HIT");
+      console.log("Cache HIT");
       return res.json(JSON.parse(cachedData));
     }
 
-    console.log("🐢 Cache MISS");
+    console.log("Cache MISS");
 
     //  Fetch from JSONPlaceholder
     const response = await axios.get(
